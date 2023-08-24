@@ -23,6 +23,7 @@
     "@nivo/line": "^0.83.0",
     "@nivo/pie": "^0.83.0",
     "formik": "^2.4.3",
+    "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pro-sidebar": "^1.1.0-alpha.1",
