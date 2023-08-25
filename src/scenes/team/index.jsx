@@ -12,6 +12,7 @@ export const Team=()=>{
     const theme = useTheme();
 
     const colors = tokens(theme.palette.mode);
+
     const columns = [
         {
         field: "id",headerName:"ID"
@@ -24,7 +25,7 @@ export const Team=()=>{
     },
     {
         field:"email", 
-        headerName:"correo",
+        headerName:"Correo",
         flex: 1,
     },
     {
@@ -78,8 +79,38 @@ export const Team=()=>{
         <Box m="20px">
             <Header title="TEAM" subtitle="Managing the Team members"/>
 
-            <Box m="40px">
+            <Box 
+            ml="40px"
+            height="75vh"
+            sx={{
+                "& .MuiDataGrid-root":{
+                    border:"none"
+                },
+                "& .MuiDataGrid-cell":{
+                    border: "none"
+                },
+                "& .name-column--cell":{
+                    color: colors.greenAccent[500]
+                },
+                "& .MuiDataGrid-columnHeaders":{
+                    backgroundColor: colors.blueAccent[700],
+                    borderBottom:"none"
+                },
+                "& .MuiDataGrid-virtualScroller":{
+                    backgroundColor: colors.primary[400]
+                },
+                "& .MuiDataGrid-footerContainer":{
+                    borderTop:"none",
+                    backgroundColor: colors.blueAccent[700]
+                },
+                 "& .MuiCheckbox-root":{
+                    color: `${colors.greenAccent[200]} !important`
+                },
+                
+            }}
+            >
                 <DataGrid 
+                    checkboxSelection
                     rows={mockDataTeam}
                     columns={columns}
                 />
