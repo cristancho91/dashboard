@@ -5,8 +5,6 @@ import { formatDate } from "@fullcalendar/core";
 import interactionPlugin from "@fullcalendar/interaction";
 import listPlugin from "@fullcalendar/list";
 import timeGridPlugin from "@fullcalendar/timegrid";
-
-
 import {
   Box,
   List,
@@ -17,25 +15,30 @@ import {
 } from "@mui/material";
 import {Header} from "../../components/Header";
 import { tokens } from "../../theme";
+import "./calendar.css";
 
 export const Calendar =()=> {
   const theme = useTheme();
+
   const colors = tokens(theme.palette.mode);
+
   const [currentEvents, setCurrentEvents] = useState([]);
+
   const handleDateClick = (selected) => {
-    const title = prompt("Please enter a new title for your event");
+    
+    const title = prompt("Por favor ingrese el titulo del evento.");
     const calendarApi = selected.view.calendar;
     calendarApi.unselect();
 
-    if (title) {
-      calendarApi.addEvent({
-        id: `${selected.dateStr}-${title}`,
-        title,
-        start: selected.startStr,
-        end: selected.endStr,
-        allDay: selected.allDay,
-      });
-    }
+      if (title) {
+        calendarApi.addEvent({
+          id: `${selected.dateStr}-${title}`,
+          title,
+          start: selected.startStr,
+          end: selected.endStr,
+          allDay: selected.allDay,
+        });
+      }
   };
   const handleEventClick = (selected) => {
     if (
@@ -90,7 +93,7 @@ export const Calendar =()=> {
         {/* CALENDAR */}
         <Box flex="1 1 100%" ml="15px">
           <FullCalendar
-          
+
             height="75vh"
             
             plugins={[
