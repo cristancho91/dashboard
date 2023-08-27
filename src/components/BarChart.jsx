@@ -2,7 +2,7 @@ import { useTheme } from "@mui/material";
 import { ResponsiveBar } from "@nivo/bar";
 import { tokens } from "../theme";
 import { mockBarData as data } from "../data/mockData";
-
+import PropTypes from 'prop-types';
 
 
 export const BarChart = ({ isDashboard = false }) => {
@@ -144,3 +144,7 @@ export const BarChart = ({ isDashboard = false }) => {
     />
   );
 };
+
+BarChart.propTypes={
+  isDashboard: PropTypes.bool,
+}
